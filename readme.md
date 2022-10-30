@@ -14,7 +14,6 @@ Como se utilizará contenedores de docker para la utilización de Kafka, se debe
 
 ```
 docker-compose up -d --build
-
 ```
 Una vez ejecutado el comando, estará listo para recibir solicitudes POST.
 
