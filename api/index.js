@@ -1,6 +1,6 @@
 // tiene las peticiones va solo los producer
-// se tienen tres rutas
-// Topic newMember-nuevaVenta-Agente
+// se tienen tres rutas a los topics
+// Topic1: newMember - Topic2: nuevaVenta - Topic3: Agente
 const express = require("express");
 const { Kafka } = require('kafkajs')
 
@@ -15,6 +15,7 @@ const kafka = new Kafka({
 
 const producer = kafka.producer();
 
+// Ruta a topic 1: newMember 
 app.post("/new", async (req, res) => {
     await producer.connect();
     console.log("Justo despues de conectar")
@@ -39,6 +40,7 @@ app.post("/new", async (req, res) => {
     console.log("Justo despues de desconectarse");
 });
 
+// Ruta a topic 2: nuevaVenta
 app.post("/venta", async (req, res) => {
     await producer.connect();
     await producer.send({
@@ -56,7 +58,7 @@ app.post("/venta", async (req, res) => {
     )
 })
 
-
+// Ruta a topic 3: Agente
 app.post("/agente", async (req, res) => {
   await producer.connect();
   await producer.send({
