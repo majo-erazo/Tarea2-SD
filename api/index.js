@@ -45,6 +45,10 @@ app.post("/venta", async (req, res) => {
         topic: 'nuevaVenta',
         messages: [{value: JSON.stringify(req.body)}]
     })
+    await producer.send({
+      topic: 'Ubicaciones',
+      messages: [{value: JSON.stringify(req.body)}]
+  })
     await producer.disconnect().then(
         res.status(200).json({
             data: req.body

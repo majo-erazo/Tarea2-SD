@@ -1,6 +1,6 @@
 const express = require("express");
 const { Kafka } = require('kafkajs')
-const client = require("./connect")
+//const client = require("./connect")
 
 
 const port = process.env.PORT;

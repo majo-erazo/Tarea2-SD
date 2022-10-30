@@ -1,6 +1,6 @@
 const express = require("express");
 const { Kafka } = require('kafkajs')
-const client = require("./connect")
+//const client = require("./connect")
 
 const port = process.env.PORT;
 const app = express();
@@ -23,12 +23,16 @@ const ventas = async () => {
     await consumer.run({
         eachMessage: async ({ topic, partition, message }) => {
             if (message.value){
+
                 var data = JSON.parse(message.value.toString());
+                //await client.db('sopaipilleros').collection('ventas').insertOne({data});
+
                 contador_clientes += 1;
                 contador_ventas = Number(contador_ventas) + Number(data.cantidad);
                 console.log(`Cantidad de clientes es: ${contador_clientes}`);
                 console.log(`Cantidad de ventas es: ${contador_ventas}`);
             }
+            
         },
       })
 }

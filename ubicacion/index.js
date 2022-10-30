@@ -1,6 +1,6 @@
 const express = require("express");
 const { Kafka } = require('kafkajs')
-const client = require("./connect")
+//const client = require("./connect")
 
 
 const port = process.env.PORT;
@@ -18,9 +18,10 @@ var pat;
 const ubicacion = async () => {
     const consumer = kafka.consumer({ groupId: 'Ubicaciones', fromBeginning: true });
     await consumer.connect();
-    await consumer.subscribe({ topic: 'nuevaVenta' });
+    await consumer.subscribe({ topic: 'Ubicaciones' });
     await consumer.run({
         eachMessage: async ({ topic, partition, message }) => {
+            console.log("La partición es: ",partition)
             if (message.value){
                 var data = JSON.parse(message.value.toString());
                 ub = data.ubicacion;
