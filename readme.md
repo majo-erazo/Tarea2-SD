@@ -63,4 +63,4 @@ Esta información se recibe y procesa a través de Kafka.
 
 ### Anexos
 
-[Video de funcionamiento del sistema ☜](https://drive.google.com/drive/folders/1t01ZKLOTjSJBgPLkujt7UBCZnZo1x7Yt?usp=sharing)
+[Video de funcionamiento del sistema ☜](https://drive.google.com/drive/folders/1MjSuWQE1b1nd7w5L9C94pB_cDvNJwdno?usp=sharing)
