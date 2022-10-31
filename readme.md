@@ -1,6 +1,6 @@
 # Tarea 2 Sistemas Distribuidos
 
-## Integrantes:
+## Integrantes
 - Maria José Erazo Gonzalez
 - Catalina Gómez Zapkovic
 
@@ -63,4 +63,4 @@ Esta información se recibe y procesa a través de Kafka.
 
 ### Anexos
 
-[Video de funcionamiento del sistema ☜](https://drive.google.com/drive/folders/1MjSuWQE1b1nd7w5L9C94pB_cDvNJwdno?usp=sharing)
+[Video de funcionamiento del sistema e informe ☜](https://drive.google.com/drive/folders/1MjSuWQE1b1nd7w5L9C94pB_cDvNJwdno?usp=sharing)
