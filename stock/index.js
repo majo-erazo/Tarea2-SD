@@ -2,6 +2,15 @@ const express = require("express");
 const { Kafka } = require('kafkajs')
 //const client = require("./connect")
 
+// Conexion con la Base de Datos
+const Pool = require('pg').Pool;
+
+const pool = new Pool({
+    user: 'postgres',
+    password: 'postgres',
+    host: 'database',
+    port: 5432,
+});
 
 const port = process.env.PORT;
 const app = express();
@@ -33,6 +42,8 @@ const stock = async () => {
                     // guardar datos del arreglo en una base de datos c:
                     arr = [];
                 }
+                
+                
             }
         },
       })

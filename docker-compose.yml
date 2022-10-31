@@ -30,7 +30,7 @@ services:
       - kafkaHost=kafka:9092
     depends_on:
       - kafka
-      - db
+      - database
     ports:
       - 3000:3000
 
@@ -41,7 +41,7 @@ services:
       - kafkaHost=kafka:9092
     depends_on:
       - kafka
-      - db
+      - database
     ports:
       - 3001:3000
 
@@ -52,7 +52,7 @@ services:
       - kafkaHost=kafka:9092
     depends_on:
       - kafka
-      - db
+      - database
     ports:
       - 3002:3000
   
@@ -63,15 +63,26 @@ services:
       - kafkaHost=kafka:9092
     depends_on:
       - kafka
-      - db
+      - database
     ports:
       - 3003:3000
-
-  db:
-    image: mongo:6.0.2
+  
+  # BASE DE DATOS 
+  database:
+    image: bitnami/postgresql:14.5.0
+    container_name: database
+    restart: always
+    volumes:
+       - './db/data:/bitnami/postgresql'
+       - './db/data.sql:/docker-entrypoint-initdb.d/data.sql:ro'
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-      MONGO_INITDB_DATABASE: sopaipilleros
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=postgres
+      - POSTGRESQL_DATABASE=postgres
     ports:
-      - 27017:27017
+      - 5432:5432
+    
+    
+    
+    
+

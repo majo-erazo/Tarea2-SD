@@ -4,7 +4,7 @@ WORKDIR /home/node
 
 COPY . .
 
-RUN npm install
+RUN npm install 
 
 ENV port=3000
 
